@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f67b3ac3-abe2-4d23-827b-b5f08b6ed6c7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/MyResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/_BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/logs/LogsAcesso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/logs/LogsComunicacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Atendente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Empresa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/AtendenteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsComunicacaoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/AtendenteResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/ClienteResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/LogsAcessoResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/LogsComunicacaoResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/salesforce/MyResourceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2eSZs4oDhnVDT8MIHnbVGL72OjH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/mathe/OneDrive/Área de Trabalho/FIAP/Avaliações - FIAP/2º Semestre/Challenge/Sprint 1/DDD/Salesforce - Sprint 3/Salesforce"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f67b3ac3-abe2-4d23-827b-b5f08b6ed6c7" name="Changes" comment="" />
+      <created>1711900144977</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711900144977</updated>
+    </task>
+    <servers />
+  </component>
+</project>
