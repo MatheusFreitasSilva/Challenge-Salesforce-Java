@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class LogsAcessoRepository {
+public class LogsAcessoRepository extends _BaseRepository implements _Logger<LogsAcessoRepository> {
     public static final String TB_NAME = "LOGS_ACESSO";
     public static final Map<String, String> TB_COLUMNS = Map.of(
             "DATA_HORA_CONEXAO", "DATA_HORA_CONEXAO",
@@ -19,8 +19,7 @@ public class LogsAcessoRepository {
     );
 
     public void create(LogsAcesso logsAcesso){
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement(
+        try (var stmt = conn.prepareStatement(
                      "INSERT INTO %s(%s, %s, %s, %s) VALUES (?, ?, ?, ?)"
                              .formatted(TB_NAME,
                                      TB_COLUMNS.get("IP_USADO"),
@@ -32,16 +31,16 @@ public class LogsAcessoRepository {
             stmt.setString(3, logsAcesso.getHorarioDesconexao());
             stmt.setInt(4, logsAcesso.getCliente_id());
             stmt.executeUpdate();
-            System.out.println("Logs de Acesso criado com sucesso!");
+            logInfo("Logs de Acesso adicionado com sucesso!");
         } catch (SQLException e) {
+            logError("Erro ao adicionar ao Banco de Dados: ");
             e.printStackTrace();
         }
     }
 
     public List<LogsAcesso> readAll(){
         var logs = new ArrayList<LogsAcesso>();
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " ORDER BY ID")) {
+        try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " ORDER BY ID")) {
             var rs = stmt.executeQuery();
             while (rs.next()) {
                 logs.add(new LogsAcesso(
@@ -52,14 +51,14 @@ public class LogsAcessoRepository {
                         rs.getString("IP_USADO")));
             }
         } catch (Exception e) {
+            logError("Erro ao filtrar Banco de Dados: ");
             e.printStackTrace();
         }
         return logs;
     }
 
     public void update(int id, LogsAcesso logsAcesso){
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement(
+        try (var stmt = conn.prepareStatement(
                      "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ? WHERE ID = ?"
                              .formatted(TB_NAME,
                                      TB_COLUMNS.get("IP_USADO"),
@@ -73,26 +72,26 @@ public class LogsAcessoRepository {
             stmt.setInt(4, logsAcesso.getCliente_id());
             stmt.setInt(5, id);
             stmt.executeUpdate();
-            System.out.println("Log de acesso atualizado com sucesso!");
+            logInfo("Log de acesso atualizado com sucesso!");
         } catch (SQLException e) {
+            logError("Erro ao atualizar log de acesso: ");
             e.printStackTrace();
         }
     }
 
     public void deleteById(int id){
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
+        try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
                      .formatted(TB_NAME))) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
-            System.out.println("Log de comunicação deletado com sucesso!");
+            logInfo("Log de acesso deletado com sucesso!");
         } catch (SQLException e) {
+            logError("Erro ao deletar Log de acesso: ");
             e.printStackTrace();
         }
     }
     public Optional<LogsAcesso> findById(int id) {
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
+        try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
         ) {
             stmt.setInt(1, id);
             var rs = stmt.executeQuery();
@@ -105,6 +104,7 @@ public class LogsAcessoRepository {
                         rs.getString("IP_USADO")));
             }
         } catch (Exception e) {
+            logError("Erro ao filtrar banco de dados: ");
             e.printStackTrace();
         }
 

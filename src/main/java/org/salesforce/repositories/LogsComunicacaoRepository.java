@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.Optional;
 
-public class LogsComunicacaoRepository {
+public class LogsComunicacaoRepository extends _BaseRepository implements _Logger<LogsComunicacaoRepository> {
     public static final String TB_NAME = "LOGS_COMUNICACAO";
     public static final Map<String, String> TB_COLUMNS = Map.of(
             "DATA_HORA_CONEXAO", "DATA_HORA_CONEXAO",
@@ -23,8 +23,7 @@ public class LogsComunicacaoRepository {
     );
 
     public void create(LogsComunicacao logsComunicacao){
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement(
+        try (var stmt = conn.prepareStatement(
                      "INSERT INTO %s(%s, %s, %s, %s, %s, %s, %s, %s) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
                              .formatted(TB_NAME,
                                      TB_COLUMNS.get("IP_USADO"),
@@ -44,16 +43,16 @@ public class LogsComunicacaoRepository {
             stmt.setInt(7, logsComunicacao.getCliente_id());
             stmt.setInt(8, logsComunicacao.getAtendente_id());
             stmt.executeUpdate();
-            System.out.println("Logs de Comunicação criado com sucesso!");
+            logInfo("Logs de Comunicação adicionado com sucesso!");
         } catch (SQLException e) {
+            logError("Erro ao adicionar ao Banco de Dados: ");
             e.printStackTrace();
         }
     }
 
     public List<LogsComunicacao> readAll(){
         var logs = new ArrayList<LogsComunicacao>();
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " ORDER BY ID")) {
+        try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " ORDER BY ID")) {
             var rs = stmt.executeQuery();
             while (rs.next()) {
                 logs.add(new LogsComunicacao(
@@ -68,14 +67,14 @@ public class LogsComunicacaoRepository {
                         rs.getInt("ATENDENTE_ID")));
             }
         } catch (Exception e) {
+            logError("Erro ao filtrar Banco de Dados: ");
             e.printStackTrace();
         }
         return logs;
     }
 
     public void update(int id, LogsComunicacao logsComunicacao){
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement(
+        try (var stmt = conn.prepareStatement(
                      "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ?, %s = ?, %s = ?, %s = ?, %s = ? WHERE ID = ?"
                              .formatted(TB_NAME,
                                      TB_COLUMNS.get("IP_USADO"),
@@ -97,27 +96,27 @@ public class LogsComunicacaoRepository {
             stmt.setInt(8, logsComunicacao.getAtendente_id());
             stmt.setInt(9, id);
             stmt.executeUpdate();
-            System.out.println("Log de comunicação atualizado com sucesso!");
+            logInfo("Log de comunicação atualizado com sucesso!");
         } catch (SQLException e) {
+            logError("Erro ao atualizar log de comunicação: ");
             e.printStackTrace();
         }
     }
 
     public void deleteById(int id){
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
+        try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
                      .formatted(TB_NAME))) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
-            System.out.println("Log de comunicação deletado com sucesso!");
+            logInfo("Log de comunicação deletado com sucesso!");
         } catch (SQLException e) {
+            logError("Erro ao deletar log de comunicação: ");
             e.printStackTrace();
         }
     }
 
     public Optional<LogsComunicacao> findById(int id) {
-        try (var conn = new OracleDBConfiguration().getConnection();
-             var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
+        try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
         ) {
             stmt.setInt(1, id);
             var rs = stmt.executeQuery();
@@ -134,6 +133,7 @@ public class LogsComunicacaoRepository {
                         rs.getInt("ATENDENTE_ID")));
             }
         } catch (Exception e) {
+            logError("Erro ao filtrar banco de dados: ");
             e.printStackTrace();
         }
 
