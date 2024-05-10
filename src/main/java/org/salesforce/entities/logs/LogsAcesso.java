@@ -1,11 +1,14 @@
 package org.salesforce.entities.logs;
 
 import org.salesforce.entities._BaseEntity;
+import org.salesforce.repositories._Logger;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LogsAcesso extends _BaseEntity {
+public class LogsAcesso extends _BaseEntity implements _Logger<LogsAcesso> {
     private String horarioConexao;
     private String horarioDesconexao;
     private int cliente_id;
@@ -47,11 +50,14 @@ public class LogsAcesso extends _BaseEntity {
     }
 
     public String getIpUsado() {
-        return ipUsado;
-    }
-
-    public void setIpUsado(String ipUsado) {
-        this.ipUsado = ipUsado;
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            return inetAddress.getHostAddress();
+        } catch (UnknownHostException e) {
+            logError("Erro ao obter IP: ");
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
