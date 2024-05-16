@@ -5,20 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f67b3ac3-abe2-4d23-827b-b5f08b6ed6c7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/CorsFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_BaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
