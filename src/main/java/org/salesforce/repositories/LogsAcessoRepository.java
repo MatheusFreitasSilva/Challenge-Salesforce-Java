@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Classe que manipula o repositório de Logs de Acesso.
+ */
 public class LogsAcessoRepository extends _BaseRepository implements _Logger<LogsAcessoRepository> {
     public static final String TB_NAME = "LOGS_ACESSO";
     public static final Map<String, String> TB_COLUMNS = Map.of(
@@ -18,6 +21,10 @@ public class LogsAcessoRepository extends _BaseRepository implements _Logger<Log
             "CLIENTE_ID", "CLIENTE_ID"
     );
 
+    /**
+     * Adiciona um Logs de Acesso ao banco de dados.
+     * @param logsAcesso Objeto LogsAcesso.
+     */
     public void create(LogsAcesso logsAcesso){
         try (var stmt = conn.prepareStatement(
                      "INSERT INTO %s(%s, %s, %s, %s) VALUES (?, ?, ?, ?)"
@@ -38,6 +45,10 @@ public class LogsAcessoRepository extends _BaseRepository implements _Logger<Log
         }
     }
 
+    /**
+     * Lê o banco de dados e retorna uma lista das informações de Logs de Acesso, sem parâmetros de busca.
+     * @return Lista de Logs de Acesso
+     */
     public List<LogsAcesso> readAll(){
         var logs = new ArrayList<LogsAcesso>();
         try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " ORDER BY ID")) {
@@ -57,6 +68,11 @@ public class LogsAcessoRepository extends _BaseRepository implements _Logger<Log
         return logs;
     }
 
+    /**
+     * Atualiza uma informação no banco de dados, por parâmetro.
+     * @param id ID do Log.
+     * @param logsAcesso Objeto LogsAcesso.
+     */
     public void update(int id, LogsAcesso logsAcesso){
         try (var stmt = conn.prepareStatement(
                      "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ? WHERE ID = ?"
@@ -79,6 +95,10 @@ public class LogsAcessoRepository extends _BaseRepository implements _Logger<Log
         }
     }
 
+    /**
+     * Deleta uma informação no banco de dados, por parâmetro.
+     * @param id ID do Log.
+     */
     public void deleteById(int id){
         try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
                      .formatted(TB_NAME))) {
@@ -90,6 +110,12 @@ public class LogsAcessoRepository extends _BaseRepository implements _Logger<Log
             e.printStackTrace();
         }
     }
+
+    /**
+     * Lê o banco de dados na tabela Logs de Acesso, por parâmetro.
+     * @param id ID do Log.
+     * @return Objeto optional LogsAcesso.
+     */
     public Optional<LogsAcesso> findById(int id) {
         try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
         ) {

@@ -5,32 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f67b3ac3-abe2-4d23-827b-b5f08b6ed6c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/MyResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/_BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/logs/LogsAcesso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/logs/LogsComunicacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Atendente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Empresa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/entities/user/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/AtendenteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsComunicacaoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/AtendenteResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/ClienteResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/LogsAcessoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/LogsComunicacaoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/salesforce/MyResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/_Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,14 +32,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/mathe/OneDrive/Área de Trabalho/FIAP/Avaliações - FIAP/2º Semestre/Challenge/Sprint 1/DDD/Salesforce - Sprint 3/Salesforce"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathe/OneDrive/Área de Trabalho/FIAP/Avaliações - FIAP/2º Semestre/Challenge/Sprint 2/DDD/Challenge-Salesforce-Java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,5 +50,16 @@
       <updated>1711900144977</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

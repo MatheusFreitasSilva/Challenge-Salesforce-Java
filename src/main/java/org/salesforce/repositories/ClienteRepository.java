@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Classe que manipula o repositório de cliente.
+ */
 public class ClienteRepository extends _BaseRepository implements _Logger<ClienteRepository> {
     public static final String TB_NAME = "CLIENTE";
     public static final Map<String, String> TB_COLUMNS = Map.of(
@@ -20,7 +23,12 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
             "SENHA", "SENHA"
     );
 
+    /**
+     * Adiciona um cliente ao banco de dados.
+     * @param cliente Objeto cliente.
+     */
     public void create(Cliente cliente) {
+
         try (var stmt = conn.prepareStatement(
                      "INSERT INTO %s(%s, %s, %s, %s, %s, %s) VALUES (?, ?, ?, ?, ?, ?)"
                              .formatted(TB_NAME,
@@ -44,6 +52,10 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         }
     }
 
+    /**
+     * Lê o banco de dados e retorna uma lista das informações de clientes, sem parâmetros de busca.
+     * @return Lista de clientes
+     */
     public List<Cliente> reedAll() {
         var clientes = new ArrayList<Cliente>();
         try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " ORDER BY ID")) {
@@ -65,6 +77,11 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         return clientes;
     }
 
+    /**
+     * Lê o banco de dados na tabela cliente, por parâmetro.
+     * @param cpf CPF do cliente.
+     * @return Objeto optional cliente.
+     */
     public Optional<Cliente> findByCpf(String cpf) {
         try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE %s = ?".formatted(
                      TB_COLUMNS.get("CPF")))) {
@@ -87,6 +104,11 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         return Optional.empty();
     }
 
+    /**
+     * Lê o banco de dados na tabela cliente, por parâmetro.
+     * @param id ID do cliente.
+     * @return Objeto optional cliente.
+     */
     public Optional<Cliente> findById(int id) {
         try (var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
         ) {
@@ -110,6 +132,10 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         return Optional.empty();
     }
 
+    /**
+     * Atualiza uma informação no banco de dados.
+     * @param id ID do cliente.
+     */
     public void update(int id, Cliente cliente) {
         try (var stmt = conn.prepareStatement(
                      "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ?, %s = ? WHERE ID = ?"
@@ -133,6 +159,12 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
             e.printStackTrace();
         }
     }
+
+    /**
+     * Atualiza uma informação no banco de dados, por parâmetro.
+     * @param id ID do cliente.
+     * @param cliente Objeto cliente.
+     */
     public void updateIdEmpresa(int id, Cliente cliente) {
         try (var stmt = conn.prepareStatement(
                      "UPDATE %s SET %s = ? WHERE ID = ?"
@@ -149,6 +181,10 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         }
     }
 
+    /**
+     * Deleta uma informação no banco de dados, por parâmetro.
+     * @param cpf CPF do cliente.
+     */
     public void deleteByCpf(String cpf){
         try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE %s = ?"
                      .formatted(TB_NAME,
@@ -162,6 +198,10 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         }
     }
 
+    /**
+     * Deleta uma informação no banco de dados, por parâmetro.
+     * @param id ID do cliente.
+     */
     public void deleteById(int id){
         try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
                      .formatted(TB_NAME))) {
@@ -174,6 +214,11 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
         }
     }
 
+    /**
+     * Busca o ID de um cliente através do CPF.
+     * @param cpf CPF do cliente.
+     * @return Optional integer id.
+     */
     public int findIdByCpf(String cpf) {
         Optional<Cliente> clientes = findByCpf(cpf);
 

@@ -9,16 +9,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * Classe que manipula o repositório de Empresa.
+ */
 public class EmpresaRepository extends _BaseRepository implements _Logger<EmpresaRepository> {
     public static final String TB_NAME = "EMPRESA";
     public static final Map<String, String> TB_COLUMNS = Map.of(
             "CNPJ", "CNPJ",
-            "BRASILEIRA", "BRASILEIRA",
+            "NACIONAL_BOOL", "NACIONAL_BOOL",
             "SETOR", "SETOR",
             "NOME", "NOME",
             "TAMANHO", "TAMANHO"
     );
 
+    /**
+     * Lê o banco de dados e retorna uma lista das informações de empresas, sem parâmetros de busca.
+     * @return Lista de empresas
+     */
     public List<Empresa> reedAll(){
         var empresas = new ArrayList<Empresa>();
         try(var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME +" ORDER BY ID")){
@@ -29,7 +36,7 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
                         rs.getString("CNPJ"),
                         rs.getString("NOME"),
                         rs.getString("TAMANHO"),
-                        rs.getBoolean("BRASILEIRA"),
+                        rs.getBoolean("NACIONAL_BOOL"),
                         rs.getString("SETOR")));
             }
         }
@@ -39,6 +46,12 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
         }
         return empresas;
     }
+
+    /**
+     * Lê o banco de dados na tabela cliente, por parâmetro.
+     * @param cnpj CNPJ da empresa.
+     * @return Objeto optional Empresa.
+     */
     public Optional<Empresa> findByCnpj(String cnpj){
         try(var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME +" WHERE %s = ?".formatted(
                     TB_COLUMNS.get("CNPJ")))){
@@ -50,7 +63,7 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
                         rs.getString("CNPJ"),
                         rs.getString("NOME"),
                         rs.getString("TAMANHO"),
-                        rs.getBoolean("BRASILEIRA"),
+                        rs.getBoolean("NACIONAL_BOOL"),
                         rs.getString("SETOR")));
             }
         }
@@ -61,6 +74,11 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
         return Optional.empty();
     }
 
+    /**
+     * Lê o banco de dados na tabela cliente, por parâmetro.
+     * @param id ID da empresa.
+     * @return Objeto optional Empresa.
+     */
     public Optional<Empresa> findById(int id){
         try(var stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")
         ){
@@ -72,7 +90,7 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
                         rs.getString("CNPJ"),
                         rs.getString("NOME"),
                         rs.getString("TAMANHO"),
-                        rs.getBoolean("BRASILEIRA"),
+                        rs.getBoolean("NACIONAL_BOOL"),
                         rs.getString("SETOR")));
             }
         }
@@ -84,12 +102,16 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
         return Optional.empty();
     }
 
+    /**
+     * Adiciona uma empresa ao banco de dados.
+     * @param empresa Objeto empresa.
+     */
     public void create(Empresa empresa){
         try(var stmt = conn.prepareStatement(
                     "INSERT INTO %s(%s, %s, %s, %s, %s) VALUES (?, ?, ?, ?, ?)"
                             .formatted(TB_NAME,
                                     TB_COLUMNS.get("CNPJ"),
-                                    TB_COLUMNS.get("BRASILEIRA"),
+                                    TB_COLUMNS.get("NACIONAL_BOOL"),
                                     TB_COLUMNS.get("SETOR"),
                                     TB_COLUMNS.get("NOME"),
                                     TB_COLUMNS.get("TAMANHO")))) {
@@ -107,12 +129,17 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
         }
     }
 
+    /**
+     * Atualiza uma informação no banco de dados, por parâmetro.
+     * @param id ID da empresa.
+     * @param empresa Objeto empresa.
+     */
     public void update(int id, Empresa empresa) {
         try (var stmt = conn.prepareStatement(
                      "UPDATE %s SET %s = ?, %s = ?, %s = ?, %s = ?, %s = ? WHERE ID = ?"
                              .formatted(TB_NAME,
                                      TB_COLUMNS.get("CNPJ"),
-                                     TB_COLUMNS.get("BRASILEIRA"),
+                                     TB_COLUMNS.get("NACIONAL_BOOL"),
                                      TB_COLUMNS.get("SETOR"),
                                      TB_COLUMNS.get("NOME"),
                                      TB_COLUMNS.get("TAMANHO")))) {
@@ -131,6 +158,10 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
         }
     }
 
+    /**
+     * Deleta uma informação no banco de dados, por parâmetro.
+     * @param cnpj CNPJ da empresa.
+     */
     public void deleteByCnpj(String cnpj){
         try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE %s = ?"
                      .formatted(TB_NAME,
@@ -144,6 +175,10 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
         }
     }
 
+    /**
+     * Deleta uma informação no banco de dados, por parâmetro.
+     * @param id ID da empresa.
+     */
     public void deleteById(int id){
         try (var stmt = conn.prepareStatement("DELETE FROM %s WHERE ID = ?"
                      .formatted(TB_NAME))) {

@@ -55,7 +55,7 @@ public class EmpresaResource {
     }
 
     @PUT
-    @Path("{id}")
+    @Path("/id/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Empresa empresa){
         try{
