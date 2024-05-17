@@ -1,6 +1,5 @@
 package org.salesforce.repositories;
 
-import org.salesforce.infrastructure.OracleDBConfiguration;
 import org.salesforce.entities.user.Empresa;
 
 import java.sql.SQLException;
@@ -13,7 +12,11 @@ import java.util.Optional;
  * Classe que manipula o repositório de Empresa.
  */
 public class EmpresaRepository extends _BaseRepository implements _Logger<EmpresaRepository> {
+
+    /** Nome da tabela de clientes */
     public static final String TB_NAME = "EMPRESA";
+
+    /** Mapeamento das colunas da tabela de clientes */
     public static final Map<String, String> TB_COLUMNS = Map.of(
             "CNPJ", "CNPJ",
             "NACIONAL_BOOL", "NACIONAL_BOOL",

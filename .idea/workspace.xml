@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f67b3ac3-abe2-4d23-827b-b5f08b6ed6c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/CorsFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/CorsFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/infrastructure/OracleDBConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/EmpresaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/repositories/LogsAcessoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/ClienteResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/ClienteResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/EmpresaResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/LogsAcessoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/salesforce/resource/LogsAcessoResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +30,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -33,14 +46,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathe/OneDrive/Área de Trabalho/FIAP/Avaliações - FIAP/2º Semestre/Challenge/Sprint 2/DDD/Challenge-Salesforce-Java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/logonrmlocal/Desktop/Challenge-Salesforce-Java"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

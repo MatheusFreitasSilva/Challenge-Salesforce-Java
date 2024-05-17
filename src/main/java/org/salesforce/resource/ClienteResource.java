@@ -8,20 +8,42 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Classe que representa o recurso REST para manipulação de clientes.
+ */
 @Path("cliente")
 public class ClienteResource {
+
+    /**
+     * Repositório de clientes para acesso aos dados.
+     */
     public ClienteRepository clienteRepository;
+
+    /**
+     * Construtor padrão que inicializa o repositório de clientes.
+     */
 
     public ClienteResource(){
         clienteRepository = new ClienteRepository();
     }
 
+    /**
+     * Obtém todos os clientes.
+     *
+     * @return Lista de clientes no formato JSON.
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cliente> readAll() {
         return clienteRepository.reedAll();
     }
 
+    /**
+     * Obtém um cliente pelo seu ID.
+     *
+     * @param id O ID do cliente.
+     * @return Resposta com o cliente no formato JSON se encontrado, caso contrário, retorna NOT_FOUND.
+     */
     @GET
     @Path("/id/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -32,6 +54,12 @@ public class ClienteResource {
                 Response.status(Response.Status.NOT_FOUND).build();
     }
 
+    /**
+     * Obtém um cliente pelo seu CPF.
+     *
+     * @param cpf O CPF do cliente.
+     * @return Resposta com o cliente no formato JSON se encontrado, caso contrário, retorna NOT_FOUND.
+     */
     @GET
     @Path("/cpf/{cpf}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -42,6 +70,12 @@ public class ClienteResource {
                 Response.status(Response.Status.NOT_FOUND).build();
     }
 
+    /**
+     * Cria um novo cliente.
+     *
+     * @param cliente O cliente a ser criado no formato JSON.
+     * @return Resposta indicando sucesso (CREATED) ou erro (BAD_REQUEST) com mensagem.
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Cliente cliente) {
@@ -53,6 +87,13 @@ public class ClienteResource {
         }
     }
 
+    /**
+     * Atualiza um cliente pelo seu ID.
+     *
+     * @param id      O ID do cliente a ser atualizado.
+     * @param cliente O cliente com os novos dados no formato JSON.
+     * @return Resposta indicando sucesso (NO_CONTENT) ou erro (BAD_REQUEST) com mensagem.
+     */
     @PUT
     @Path("/id/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -66,6 +107,13 @@ public class ClienteResource {
         }
     }
 
+    /**
+     * Atualiza o ID da empresa associada a um cliente.
+     *
+     * @param empresa_id O ID da empresa associada ao cliente.
+     * @param cliente    O cliente com o novo ID da empresa no formato JSON.
+     * @return Resposta indicando sucesso (NO_CONTENT) ou erro (BAD_REQUEST) com mensagem.
+     */
     @PUT
     @Path("{empresa_id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -79,6 +127,12 @@ public class ClienteResource {
         }
     }
 
+    /**
+     * Exclui um cliente pelo seu CPF.
+     *
+     * @param cpf O CPF do cliente a ser excluído.
+     * @return Resposta indicando sucesso (NO_CONTENT) ou erro (BAD_REQUEST) com mensagem.
+     */
     @DELETE
     @Path("/cpf/{cpf}")
     public Response delete(@PathParam("cpf") String cpf){
@@ -91,6 +145,12 @@ public class ClienteResource {
         }
     }
 
+    /**
+     * Exclui um cliente pelo seu ID.
+     *
+     * @param id O ID do cliente a ser excluído.
+     * @return Resposta indicando sucesso (NO_CONTENT) ou erro (BAD_REQUEST) com mensagem.
+     */
     @DELETE
     @Path("/id/{id}")
     public Response delete(@PathParam("id") int id){
@@ -102,6 +162,13 @@ public class ClienteResource {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
+
+    /**
+     * Obtém o ID de um cliente pelo seu CPF.
+     *
+     * @param cpf O CPF do cliente.
+     * @return Resposta com o ID do cliente no formato JSON se encontrado, caso contrário, retorna NOT_FOUND.
+     */
     @GET
     @Path("/getIdByCpf/{cpf}")
     @Produces(MediaType.APPLICATION_JSON)

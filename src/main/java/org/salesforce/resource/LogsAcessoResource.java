@@ -8,13 +8,30 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Classe que representa o recurso REST para manipulação de logs de acesso.
+ */
 @Path("logsAcesso")
 public class LogsAcessoResource {
+
+    /**
+     * Repositório de logs de acesso para acesso aos dados.
+     */
     public LogsAcessoRepository logsAcessoRepository;
+
+    /**
+     * Repositório de logs de acesso para acesso aos dados.
+     */
 
     public LogsAcessoResource(){
         logsAcessoRepository = new LogsAcessoRepository();
     }
+
+    /**
+     * Obtém todos os logs de acesso.
+     *
+     * @return Lista de logs de acesso no formato JSON.
+     */
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -22,6 +39,12 @@ public class LogsAcessoResource {
         return logsAcessoRepository.readAll();
     }
 
+    /**
+     * Obtém um log de acesso pelo seu ID.
+     *
+     * @param id O ID do log de acesso.
+     * @return Resposta com o log de acesso no formato JSON se encontrado, caso contrário, retorna NOT_FOUND.
+     */
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -32,6 +55,12 @@ public class LogsAcessoResource {
                 Response.status(Response.Status.NOT_FOUND).build();
     }
 
+    /**
+     * Cria um novo log de acesso.
+     *
+     * @param logsAcesso O log de acesso a ser criado no formato JSON.
+     * @return Resposta indicando sucesso (CREATED) ou erro (BAD_REQUEST) com mensagem.
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(LogsAcesso logsAcesso) {
@@ -43,6 +72,13 @@ public class LogsAcessoResource {
         }
     }
 
+    /**
+     * Atualiza um log de acesso pelo seu ID.
+     *
+     * @param id          O ID do log de acesso a ser atualizado.
+     * @param logsAcesso  O log de acesso com os novos dados no formato JSON.
+     * @return Resposta indicando sucesso (NO_CONTENT) ou erro (BAD_REQUEST) com mensagem.
+     */
     @PUT
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -56,6 +92,12 @@ public class LogsAcessoResource {
         }
     }
 
+    /**
+     * Exclui um log de acesso pelo seu ID.
+     *
+     * @param id O ID do log de acesso a ser excluído.
+     * @return Resposta indicando sucesso (NO_CONTENT) ou erro (BAD_REQUEST) com mensagem.
+     */
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") int id){

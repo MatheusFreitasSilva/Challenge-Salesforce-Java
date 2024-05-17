@@ -1,7 +1,6 @@
 package org.salesforce.repositories;
 
 import org.salesforce.entities.logs.LogsAcesso;
-import org.salesforce.infrastructure.OracleDBConfiguration;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,7 +12,11 @@ import java.util.Optional;
  * Classe que manipula o repositório de Logs de Acesso.
  */
 public class LogsAcessoRepository extends _BaseRepository implements _Logger<LogsAcessoRepository> {
+
+    /** Nome da tabela de clientes */
     public static final String TB_NAME = "LOGS_ACESSO";
+
+    /** Mapeamento das colunas da tabela de clientes */
     public static final Map<String, String> TB_COLUMNS = Map.of(
             "DATA_HORA_CONEXAO", "DATA_HORA_CONEXAO",
             "DATA_HORA_DESCONEXAO", "DATA_HORA_DESCONEXAO",

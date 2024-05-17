@@ -1,6 +1,5 @@
 package org.salesforce.repositories;
 
-import org.salesforce.infrastructure.OracleDBConfiguration;
 import org.salesforce.entities.user.Cliente;
 
 import java.sql.SQLException;
@@ -10,10 +9,14 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Classe que manipula o repositório de cliente.
+ * Classe responsável por acessar e manipular dados relacionados a clientes no banco de dados.
  */
 public class ClienteRepository extends _BaseRepository implements _Logger<ClienteRepository> {
+
+    /** Nome da tabela de clientes */
     public static final String TB_NAME = "CLIENTE";
+
+    /** Mapeamento das colunas da tabela de clientes */
     public static final Map<String, String> TB_COLUMNS = Map.of(
             "CPF", "CPF",
             "NOME", "NOME",
@@ -25,6 +28,7 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Adiciona um cliente ao banco de dados.
+     *
      * @param cliente Objeto cliente.
      */
     public void create(Cliente cliente) {
@@ -54,6 +58,7 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Lê o banco de dados e retorna uma lista das informações de clientes, sem parâmetros de busca.
+     *
      * @return Lista de clientes
      */
     public List<Cliente> reedAll() {
@@ -79,6 +84,7 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Lê o banco de dados na tabela cliente, por parâmetro.
+     *
      * @param cpf CPF do cliente.
      * @return Objeto optional cliente.
      */
@@ -106,6 +112,7 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Lê o banco de dados na tabela cliente, por parâmetro.
+     *
      * @param id ID do cliente.
      * @return Objeto optional cliente.
      */
@@ -134,7 +141,9 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Atualiza uma informação no banco de dados.
-     * @param id ID do cliente.
+     *
+     * @param id      ID do cliente.
+     * @param cliente Objeto cliente.
      */
     public void update(int id, Cliente cliente) {
         try (var stmt = conn.prepareStatement(
@@ -162,7 +171,8 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Atualiza uma informação no banco de dados, por parâmetro.
-     * @param id ID do cliente.
+     *
+     * @param id      ID do cliente.
      * @param cliente Objeto cliente.
      */
     public void updateIdEmpresa(int id, Cliente cliente) {
@@ -183,6 +193,7 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Deleta uma informação no banco de dados, por parâmetro.
+     *
      * @param cpf CPF do cliente.
      */
     public void deleteByCpf(String cpf){
@@ -200,6 +211,7 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Deleta uma informação no banco de dados, por parâmetro.
+     *
      * @param id ID do cliente.
      */
     public void deleteById(int id){
@@ -216,8 +228,9 @@ public class ClienteRepository extends _BaseRepository implements _Logger<Client
 
     /**
      * Busca o ID de um cliente através do CPF.
+     *
      * @param cpf CPF do cliente.
-     * @return Optional integer id.
+     * @return ID do cliente, ou 0 se não encontrado.
      */
     public int findIdByCpf(String cpf) {
         Optional<Cliente> clientes = findByCpf(cpf);
