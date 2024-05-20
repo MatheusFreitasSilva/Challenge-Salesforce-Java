@@ -142,4 +142,22 @@ public class EmpresaResource {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
+
+    /**
+     * Obtém o ID de uma empresa pelo seu CNPJ.
+     *
+     * @param cnpj O CNPJ da empresa.
+     * @return Resposta com o ID da empresa no formato JSON se encontrado, caso contrário, retorna NOT_FOUND.
+     */
+    @GET
+    @Path("/getIdByCnpj/{cnpj}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getIdByCpf(@PathParam("cnpj") String cnpj) {
+        var empresa_id = empresaRepository.findIdByCnpj(cnpj.replaceAll("[^0-9]", ""));
+        if (empresa_id != 0) {
+            return Response.ok(empresa_id).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package org.salesforce.repositories;
 
+import org.salesforce.entities.user.Cliente;
 import org.salesforce.entities.user.Empresa;
 
 import java.sql.SQLException;
@@ -192,5 +193,21 @@ public class EmpresaRepository extends _BaseRepository implements _Logger<Empres
             logError("Erro ao deletar empresa: ");
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Obtém o ID de uma empresa pelo seu CNPJ.
+     *
+     * @param cnpj O CNPJ da empresa.
+     * @return Resposta com o ID da empresa no formato JSON se encontrado, caso contrário, retorna NOT_FOUND.
+     */
+    public int findIdByCnpj(String cnpj) {
+        Optional<Empresa> empresas = findByCnpj(cnpj);
+
+        Optional<Integer> idOptional = empresas.stream()
+                .map(Empresa::getId)
+                .findFirst();
+
+        return idOptional.orElse(0);
     }
 }
